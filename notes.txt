@@ -1,3 +1,7 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
 Classes
 
 Network	https://www.wikidata.org/wiki/Q3220391
@@ -26,6 +30,8 @@ Minion Talk	https://www.wikidata.org/wiki/Q73899574
 
 Data Dragons SIG	https://www.wikidata.org/wiki/Q73901110
 Data Dragon Repository https://www.wikidata.org/wiki/Q73901520
+
+Research Squirrel Engineers https://www.wikidata.org/wiki/Q73901970
 
 {
 	"name": "",
