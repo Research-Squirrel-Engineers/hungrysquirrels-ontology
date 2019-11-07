@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://rsetools.squirrel.link/"
+     xml:base="http://rsetools.squirrel.link/"
+     xmlns:wd="http://www.wikidata.org/entity/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wdt="http://www.wikidata.org/prop/direct/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://rsetools.squirrel.link/">
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>The RSE Tools Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rsetools.squirrel.link/entryLevel -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/entryLevel">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/inputFormat -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/inputFormat">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/outputFormat -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/outputFormat">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/status -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/status">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rsetools.squirrel.link/active -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/active">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/author -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/author">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/consumesLOD -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/consumesLOD">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/dateOfEntry -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/dateOfEntry">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/description -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/description">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/gitrepository -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/gitrepository">
+        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link/link"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/link -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/link">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/name -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/name">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/producesLOD -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/producesLOD">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rsetools.squirrel.link/DataRepository -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/DataRepository">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q1334294"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/EntryLevel -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/EntryLevel"/>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Format -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Format"/>
+    
+
+
+    <!-- http://rsetools.squirrel.link/InputFormat -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/InputFormat">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/LightningTalk -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/LightningTalk">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q926186"/>
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Talk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Network -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Network">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q3220391"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/OutputFormat -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/OutputFormat">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Format"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Project -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Project">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q170584"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/SIG -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/SIG">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q431603"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Software -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Software">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q7397"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Status -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Status"/>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Talk -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Talk"/>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Tool -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Tool">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q312466"/>
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Workflow -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Workflow">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q627335"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q1334294 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1334294"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q170584 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q170584"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q312466 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q312466"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q3220391 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q3220391"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q431603 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q431603"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q627335 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q627335"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q7397 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q7397"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q926186 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q926186"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rsetools.squirrel.link/Advanced -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/Advanced">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Beginner -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/Beginner">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/CSV -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/CSV">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/CYPHER -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/CYPHER">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/GEOJSON -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/GEOJSON">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/HTML -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/HTML">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/IIIF-JSON -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/IIIF-JSON">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/JPG -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/JPG">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/JSON-LD -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/JSON-LD">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/N3 -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/N3">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/PLAIN-TEXT -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/PLAIN-TEXT">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/PNG -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/PNG">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/RDF-XML -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/RDF-XML">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/SHAQL -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SHAQL">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/SHP -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SHP">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/SPARQL -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SPARQL">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/SQL -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SQL">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/TIFF -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/TIFF">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/TTL -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/TTL">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/X3D -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/X3D">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/XML-TEI -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/XML-TEI">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/any_3D_format -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/any_3D_format">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/prototype -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/prototype">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/published -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/published">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/unknown -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/unknown">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/audio/video -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/audio/video">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73896570 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73896570">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73897190 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897190">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Project"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73897434 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897434">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Workflow"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73897825 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897825">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Software"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73898411 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73898411">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73899080 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899080">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Project"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73899440 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899440">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Tool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73899574 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899574">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/LightningTalk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73901520 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73901520">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/DataRepository"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73901970 -->
+
+    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73901970">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
