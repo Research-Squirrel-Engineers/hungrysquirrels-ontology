@@ -7,9 +7,13 @@
      xmlns:wdt="http://www.wikidata.org/prop/direct/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+     xmlns:schema="http://schema.org/"
+     xmlns:wikibase="http://wikiba.se/ontology#">
     <owl:Ontology rdf:about="http://rsetools.squirrel.link/">
-        <rdfs:comment></rdfs:comment>
+        <rdfs:comment>This ontology contains classes to descibe Little Minions as Tools, Linked Pipes a Workflow for Linked Data Tools and Data Dragons as Repository for Linked Data.</rdfs:comment>
         <rdfs:label>The RSE Tools Ontology</rdfs:label>
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
     </owl:Ontology>
@@ -44,11 +48,47 @@
     
 
 
+    <!-- http://rsetools.squirrel.link/dataState -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/dataState">
+        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link/status"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/DataRepository"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/RepoState"/>
+        <rdfs:comment>status of a data repository</rdfs:comment>
+        <rdfs:label>data state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://rsetools.squirrel.link/entryLevel -->
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/entryLevel">
         <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
         <rdfs:range rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+        <rdfs:comment>entry level for a tool</rdfs:comment>
+        <rdfs:label>entry level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/hasInput">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/PipeObject"/>
+        <rdfs:comment>input of a pipe step</rdfs:comment>
+        <rdfs:label>has input</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/hasOutput">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/PipeObject"/>
+        <rdfs:comment>output of a pipe step</rdfs:comment>
+        <rdfs:label>has output</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -58,6 +98,20 @@
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/inputFormat">
         <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
         <rdfs:range rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdfs:comment>input format for a software or tool</rdfs:comment>
+        <rdfs:label>input format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/next -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/next">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Pipe"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:comment>next chain step of a pipe</rdfs:comment>
+        <rdfs:label>next</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -67,6 +121,20 @@
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/outputFormat">
         <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
         <rdfs:range rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:comment>output format for a software or tool</rdfs:comment>
+        <rdfs:label>output format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/pipeState -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/pipeState">
+        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link/status"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/PipeState"/>
+        <rdfs:comment>status of a pipe</rdfs:comment>
+        <rdfs:label>pipe state</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -74,8 +142,43 @@
     <!-- http://rsetools.squirrel.link/status -->
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/status">
+        <rdfs:comment>status super property</rdfs:comment>
+        <rdfs:label>status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/toolState -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/toolState">
+        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link/status"/>
         <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
-        <rdfs:range rdf:resource="http://rsetools.squirrel.link/Status"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/ToolState"/>
+        <rdfs:comment>status of a tool</rdfs:comment>
+        <rdfs:label>tool state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/usedBy -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/usedBy">
+        <owl:inverseOf rdf:resource="http://rsetools.squirrel.link/uses"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:comment>pipestep used by software or tool</rdfs:comment>
+        <rdfs:label>used by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/uses -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link/uses">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link/PipeStep"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:comment>pipestep uses software or tool</rdfs:comment>
+        <rdfs:label>uses</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -95,6 +198,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/active">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>is the item active?</rdfs:comment>
+        <rdfs:label>active</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -103,6 +208,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/author">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>author or inventor or right holder</rdfs:comment>
+        <rdfs:label>author</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -111,6 +218,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/consumesLOD">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>does the item consume LOD?</rdfs:comment>
+        <rdfs:label>consumes LOD</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -119,6 +228,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/dateOfEntry">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>the date of database entry</rdfs:comment>
+        <rdfs:label>date of entry</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -127,6 +238,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/description">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>a short description</rdfs:comment>
+        <rdfs:label>description</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -136,6 +249,8 @@
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/gitrepository">
         <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link/link"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>a link to the git repository</rdfs:comment>
+        <rdfs:label>git repository</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -144,6 +259,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/link">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>a link for further information</rdfs:comment>
+        <rdfs:label>link</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -152,6 +269,8 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/name">
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>a name</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -160,6 +279,18 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/producesLOD">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>does the item produce LOD?</rdfs:comment>
+        <rdfs:label>produces LOD</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link/sparqlendpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link/sparqlendpoint">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>web URL of the SPARQL endpoint</rdfs:comment>
+        <rdfs:label>SPARQL endpoint</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -175,23 +306,61 @@
     
 
 
+    <!-- http://rsetools.squirrel.link/Characteristics -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Characteristics">
+        <rdfs:comment>classes for characteristics</rdfs:comment>
+        <rdfs:label>Characteristics</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://rsetools.squirrel.link/DataRepository -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/DataRepository">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q1334294"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q1334294"/>
+        <rdfs:comment>a repository that stores Linked Open Data</rdfs:comment>
+        <rdfs:label>Data Repository</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Dragons -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Dragons">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Characteristics"/>
+        <rdfs:comment>Data Dragons Characteristic classes</rdfs:comment>
+        <rdfs:label>Data Dragons Characteristics</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://rsetools.squirrel.link/EntryLevel -->
 
-    <owl:Class rdf:about="http://rsetools.squirrel.link/EntryLevel"/>
+    <owl:Class rdf:about="http://rsetools.squirrel.link/EntryLevel">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Minions"/>
+        <rdfs:comment>level of knowledge need to use a minion</rdfs:comment>
+        <rdfs:label>Entry Level</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://rsetools.squirrel.link/Format -->
 
-    <owl:Class rdf:about="http://rsetools.squirrel.link/Format"/>
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Format">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Minions"/>
+        <rdfs:comment>class to define file format types</rdfs:comment>
+        <rdfs:label>File Format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/General -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/General">
+        <rdfs:comment>general classes</rdfs:comment>
+        <rdfs:label>General</rdfs:label>
+    </owl:Class>
     
 
 
@@ -199,15 +368,28 @@
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/InputFormat">
         <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Format"/>
+        <rdfs:comment>a special input format</rdfs:comment>
+        <rdfs:label>Input Format</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://rsetools.squirrel.link/LightningTalk -->
+    <!-- http://rsetools.squirrel.link/MinionTalk -->
 
-    <owl:Class rdf:about="http://rsetools.squirrel.link/LightningTalk">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q926186"/>
-        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Talk"/>
+    <owl:Class rdf:about="http://rsetools.squirrel.link/MinionTalk">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/73899574"/>
+        <rdfs:comment>lightning talk (5min+2min discussion) presenting a Little Minion</rdfs:comment>
+        <rdfs:label>Minion Talk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Minions -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Minions">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Characteristics"/>
+        <rdfs:comment>Little Minions Characteristic classes</rdfs:comment>
+        <rdfs:label>Little Minions Characteristics</rdfs:label>
     </owl:Class>
     
 
@@ -215,7 +397,9 @@
     <!-- http://rsetools.squirrel.link/Network -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/Network">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q3220391"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q3220391"/>
+        <rdfs:comment>a network</rdfs:comment>
+        <rdfs:label>Network</rdfs:label>
     </owl:Class>
     
 
@@ -224,6 +408,58 @@
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/OutputFormat">
         <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Format"/>
+        <rdfs:comment>a special output format</rdfs:comment>
+        <rdfs:label>Output Format</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Pipe -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Pipe">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q627335"/>
+        <rdfs:comment>a chain of software executions using tools</rdfs:comment>
+        <rdfs:label>Pipe</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/PipeObject -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/PipeObject">
+        <rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object"/>
+        <rdfs:comment>input or ouput of a pipe step</rdfs:comment>
+        <rdfs:label>Pipe Object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/PipeState -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/PipeState">
+        <rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution"/>
+        <rdfs:label>Pipe Status</rdfs:label>
+        <rdfs:label>status of a type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/PipeStep -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/PipeStep">
+        <rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution"/>
+        <rdfs:comment>step of a pipe</rdfs:comment>
+        <rdfs:label>Pipe Step</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/Pipes -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/Pipes">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Characteristics"/>
+        <rdfs:comment>Linked Pipes Characteristic classes</rdfs:comment>
+        <rdfs:label>Linked Pipes Characteristics</rdfs:label>
     </owl:Class>
     
 
@@ -231,7 +467,19 @@
     <!-- http://rsetools.squirrel.link/Project -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/Project">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q170584"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q170584"/>
+        <rdfs:comment>a project</rdfs:comment>
+        <rdfs:label>Project</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link/RepoState -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link/RepoState">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Dragons"/>
+        <rdfs:comment>status of a repository</rdfs:comment>
+        <rdfs:label>Repository Status</rdfs:label>
     </owl:Class>
     
 
@@ -239,7 +487,9 @@
     <!-- http://rsetools.squirrel.link/SIG -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/SIG">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q431603"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q431603"/>
+        <rdfs:comment>a group of people with their own specific interests</rdfs:comment>
+        <rdfs:label>Special Interest Group</rdfs:label>
     </owl:Class>
     
 
@@ -247,85 +497,136 @@
     <!-- http://rsetools.squirrel.link/Software -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/Software">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q7397"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q7397"/>
+        <rdfs:comment>a software coded by a company or RSE developer</rdfs:comment>
+        <rdfs:label>Software</rdfs:label>
     </owl:Class>
-    
-
-
-    <!-- http://rsetools.squirrel.link/Status -->
-
-    <owl:Class rdf:about="http://rsetools.squirrel.link/Status"/>
-    
-
-
-    <!-- http://rsetools.squirrel.link/Talk -->
-
-    <owl:Class rdf:about="http://rsetools.squirrel.link/Talk"/>
     
 
 
     <!-- http://rsetools.squirrel.link/Tool -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link/Tool">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q312466"/>
-        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q312466"/>
+        <rdfs:comment>a small piece of software coded by a RSE</rdfs:comment>
+        <rdfs:label>Tool</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://rsetools.squirrel.link/Workflow -->
+    <!-- http://rsetools.squirrel.link/ToolState -->
 
-    <owl:Class rdf:about="http://rsetools.squirrel.link/Workflow">
-        <owl:equivalentClass rdf:resource="https://www.wikidata.org/wiki/Q627335"/>
+    <owl:Class rdf:about="http://rsetools.squirrel.link/ToolState">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Minions"/>
+        <rdfs:comment>status of a tool</rdfs:comment>
+        <rdfs:label>Tool Status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution -->
+
+    <owl:Class rdf:about="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Pipes"/>
+        <rdfs:comment>This class comprises events by which a digital device runs a software program or a series of  computing 
+	operations on a digital object  as a single task, which is completely determined by its digital input, 
+	the software and the generic properties of the device. 
+	</rdfs:comment>
+        <rdfs:label>software execution</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object -->
+
+    <owl:Class rdf:about="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Pipes"/>
+        <rdfs:comment>This class comprises identifiable immaterial items that can be represented as sets of bit sequences, 
+	such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units. 
+	Any aggregation of instances of D1 Digital Object into a whole treated as single unit is also regarded as an instance of D1 Digital Object. 
+	This means that for instance, the content of a DVD, an XML file on it, and an element of this file, are regarded as distinct instances of 
+	D1 Digital Object, mutually related by the P106 is composed of (forms part of) property.
+A D1 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.
+</rdfs:comment>
+        <rdfs:label>digital object</rdfs:label>
     </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q1334294 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1334294"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1334294">
+        <rdfs:comment>storage location on a computer for software packages</rdfs:comment>
+        <rdfs:label>software repository</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q170584 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q170584"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q170584">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/General"/>
+        <rdfs:comment>collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim</rdfs:comment>
+        <rdfs:label>project</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q312466 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q312466"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q312466">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Software"/>
+        <rdfs:comment>system software designed to help analyze, configure, optimize or maintain a computer</rdfs:comment>
+        <rdfs:label>utility software</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q3220391 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q3220391"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q3220391">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/General"/>
+        <rdfs:comment>online platform that facilitates the building of social relations</rdfs:comment>
+        <rdfs:label>social networking service</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q431603 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q431603"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q431603">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/General"/>
+        <rdfs:comment>defines and represents the interests of a particular social group or industry</rdfs:comment>
+        <rdfs:label>advocacy group</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q627335 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q627335"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q627335">
+        <rdfs:comment>defined sequence of activities in a working system of an organization</rdfs:comment>
+        <rdfs:label>workflow</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- https://www.wikidata.org/wiki/Q7397 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q7397"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q7397">
+        <rdfs:comment>non-tangible executable component of a computer</rdfs:comment>
+        <rdfs:label>software</rdfs:label>
+    </owl:Class>
     
 
 
-    <!-- https://www.wikidata.org/wiki/Q926186 -->
+    <!-- https://www.wikidata.org/wiki/73899574 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q926186"/>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/73899574">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link/Minions"/>
+        <rdfs:comment>lightning talk (5min+2min discussion) presenting a Little Minion</rdfs:comment>
+        <rdfs:label>minion talk</rdfs:label>
+    </owl:Class>
     
 
 
@@ -340,27 +641,12 @@
     
 
 
-    <!-- http://rsetools.squirrel.link/Advanced -->
-
-    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/Advanced">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://rsetools.squirrel.link/Beginner -->
-
-    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/Beginner">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://rsetools.squirrel.link/CSV -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/CSV">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>CSV</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -370,6 +656,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/CYPHER">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>CYPHER</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -379,6 +666,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/GEOJSON">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>GEOJSON</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -388,6 +676,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/HTML">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>HTML</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -397,6 +686,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/IIIF-JSON">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>IIIF-JSON</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -406,6 +696,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/JPG">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>JPG</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -415,6 +706,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/JSON-LD">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>JSON-LD</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -424,6 +716,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/N3">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>N3</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -433,6 +726,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/PLAIN-TEXT">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>PLAIN-TEXT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -442,6 +736,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/PNG">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>PNG</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -451,6 +746,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/RDF-XML">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>RDF-XML</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -460,6 +756,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SHAQL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>SHAQL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -469,6 +766,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SHP">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>SHP</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -478,6 +776,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SPARQL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>SPARQL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -487,6 +786,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/SQL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>SQL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -496,6 +796,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/TIFF">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>TIFF</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -505,6 +806,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/TTL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>TTL</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -514,6 +816,7 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/X3D">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>X3D</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -523,15 +826,63 @@
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/XML-TEI">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>XML-TEI</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://rsetools.squirrel.link/any_3D_format -->
+    <!-- http://rsetools.squirrel.link/acvitive -->
 
-    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/any_3D_format">
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/acvitive">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/RepoState"/>
+        <rdfs:label>active</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/advanced -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/advanced">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+        <rdfs:label>advanced</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/any3Dformat -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/any3Dformat">
         <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>any 3d format</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/audio-video -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/audio-video">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
+        <rdfs:label>AUDIO + VIDEO</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/beginner -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/beginner">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/EntryLevel"/>
+        <rdfs:label>beginner</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/end -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/end">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/PipeState"/>
+        <rdfs:label>end</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -539,7 +890,8 @@
     <!-- http://rsetools.squirrel.link/prototype -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/prototype">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/ToolState"/>
+        <rdfs:label>prototype</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -547,7 +899,35 @@
     <!-- http://rsetools.squirrel.link/published -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/published">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/ToolState"/>
+        <rdfs:label>published</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/start -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/start">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/PipeState"/>
+        <rdfs:label>start</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/step -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/step">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/PipeState"/>
+        <rdfs:label>step</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link/test -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/test">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/RepoState"/>
+        <rdfs:label>test</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -555,96 +935,8 @@
     <!-- http://rsetools.squirrel.link/unknown -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/unknown">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Status"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://rsetools.squirrel.link/audio/video -->
-
-    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link/audio/video">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/InputFormat"/>
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/OutputFormat"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73896570 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73896570">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73897190 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897190">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Project"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73897434 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897434">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Workflow"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73897825 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73897825">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Software"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73898411 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73898411">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73899080 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899080">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Project"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73899440 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899440">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Tool"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73899574 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73899574">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/LightningTalk"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73901520 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73901520">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/DataRepository"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://www.wikidata.org/wiki/Q73901970 -->
-
-    <owl:NamedIndividual rdf:about="https://www.wikidata.org/wiki/Q73901970">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link/Network"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link/ToolState"/>
+        <rdfs:label>unknown</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 
