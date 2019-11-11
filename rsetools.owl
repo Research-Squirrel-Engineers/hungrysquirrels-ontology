@@ -374,6 +374,26 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#LinkedTool -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#LinkedTool">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73899440"/>
+        <rdfs:comment>A tool related to the Linked Pipes Project</rdfs:comment>
+        <rdfs:label>Linked Tool</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link#LittleMinion -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#LittleMinion">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73899440"/>
+        <rdfs:comment>A tool related to the CAA Little Minions</rdfs:comment>
+        <rdfs:label>Little Minion</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://rsetools.squirrel.link#MinionTalk -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link#MinionTalk">
@@ -607,6 +627,16 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q627335">
         <rdfs:comment>defined sequence of activities in a working system of an organization</rdfs:comment>
         <rdfs:label>workflow</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Q73899440 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q73899440">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Tool"/>
+        <rdfs:comment>small software tool for research projects (releated to Digital Humanities)</rdfs:comment>
+        <rdfs:label>little minion</rdfs:label>
     </owl:Class>
     
 
