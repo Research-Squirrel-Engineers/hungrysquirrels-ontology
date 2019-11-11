@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://rsetools.squirrel.link/"
-     xml:base="http://rsetools.squirrel.link/"
+<rdf:RDF xmlns="http://rsetools.squirrel.link#"
+     xml:base="http://rsetools.squirrel.link"
      xmlns:wd="http://www.wikidata.org/entity/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -459,7 +459,7 @@
     <owl:Class rdf:about="http://rsetools.squirrel.link#PipeState">
         <rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution"/>
         <rdfs:label>Pipe Status</rdfs:label>
-        <rdfs:label>status of a type</rdfs:label>
+        <rdfs:label>status of a pipe</rdfs:label>
     </owl:Class>
     
 
@@ -847,6 +847,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>X3D</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#XML -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#XML">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
     </owl:NamedIndividual>
     
 
