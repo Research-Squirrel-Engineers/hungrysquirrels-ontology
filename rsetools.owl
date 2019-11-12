@@ -295,6 +295,14 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#wikidataid -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link#wikidataid">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
