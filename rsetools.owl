@@ -873,6 +873,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#XML">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:label>XML</rdfs:label>
     </owl:NamedIndividual>
     
 
