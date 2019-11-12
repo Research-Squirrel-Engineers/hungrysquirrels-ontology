@@ -946,6 +946,16 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- http://rsetools.squirrel.link#commandline -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#commandline">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:label>command line</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://rsetools.squirrel.link#end -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#end">
