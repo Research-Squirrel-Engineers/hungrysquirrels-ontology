@@ -259,8 +259,6 @@
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link#active">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <rdfs:comment>is the item active?</rdfs:comment>
-        <rdfs:label>active</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1154,11 +1152,10 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
-    <!-- http://rsetools.squirrel.link#acvitive -->
+    <!-- http://rsetools.squirrel.link#active -->
 
-    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#acvitive">
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#active">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
-        <rdfs:label>active</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1379,6 +1376,21 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryGroup"/>
         <rdfs:label>unspecified Group</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://rsetools.squirrel.link#active">
+        <rdfs:comment>is the item active?</rdfs:comment>
+        <rdfs:label>active</rdfs:label>
+    </rdf:Description>
 </rdf:RDF>
 
 
