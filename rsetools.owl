@@ -54,18 +54,6 @@
     
 
 
-    <!-- http://rsetools.squirrel.link#dataState -->
-
-    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#dataState">
-        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link#status"/>
-        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
-        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepoState"/>
-        <rdfs:comment>status of a data repository</rdfs:comment>
-        <rdfs:label>data state</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://rsetools.squirrel.link#entryLevel -->
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#entryLevel">
@@ -88,6 +76,17 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#hasLegalType -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#hasLegalType">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryLegalType"/>
+        <rdfs:comment>legal type of a data repository</rdfs:comment>
+        <rdfs:label>has legal type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://rsetools.squirrel.link#hasOutput -->
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#hasOutput">
@@ -99,6 +98,28 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#hasQuality">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryQuality"/>
+        <rdfs:comment>fuzzy quality of a data repository</rdfs:comment>
+        <rdfs:label>has quality</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#hasType">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryType"/>
+        <rdfs:comment>type of a data repository</rdfs:comment>
+        <rdfs:label>has type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://rsetools.squirrel.link#inputFormat -->
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#inputFormat">
@@ -106,6 +127,40 @@
         <rdfs:range rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdfs:comment>input format for a software or tool</rdfs:comment>
         <rdfs:label>input format</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link#lairGroup -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#lairGroup">
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryGroup"/>
+        <rdfs:comment>data repository belongs to group X</rdfs:comment>
+        <rdfs:label>lair group</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link#lairState -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#lairState">
+        <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link#status"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
+        <rdfs:comment>status of a data repository (data dragon lair)</rdfs:comment>
+        <rdfs:label>lair state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rsetools.squirrel.link#language -->
+
+    <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#language">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepositoryLanguage"/>
+        <rdfs:comment>main language of a thing</rdfs:comment>
+        <rdfs:label>language</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -585,16 +640,6 @@
     
 
 
-    <!-- http://rsetools.squirrel.link#RepoState -->
-
-    <owl:Class rdf:about="http://rsetools.squirrel.link#RepoState">
-        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Dragons"/>
-        <rdfs:comment>status of a repository</rdfs:comment>
-        <rdfs:label>Repository Status</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://rsetools.squirrel.link#RepositoryGroup -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link#RepositoryGroup">
@@ -631,6 +676,16 @@
         <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Dragons"/>
         <rdfs:comment>quality of a repository</rdfs:comment>
         <rdfs:label>Repository Quality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link#RepositoryState -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#RepositoryState">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Dragons"/>
+        <rdfs:comment>status of a repository</rdfs:comment>
+        <rdfs:label>Repository Status</rdfs:label>
     </owl:Class>
     
 
@@ -1102,7 +1157,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <!-- http://rsetools.squirrel.link#acvitive -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#acvitive">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepoState"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
         <rdfs:label>active</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1186,7 +1241,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <!-- http://rsetools.squirrel.link#deprecated -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#deprecated">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepoState"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
         <rdfs:label>deprecated</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1294,7 +1349,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <!-- http://rsetools.squirrel.link#testStatus -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#testStatus">
-        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepoState"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
         <rdfs:label>test</rdfs:label>
     </owl:NamedIndividual>
     
