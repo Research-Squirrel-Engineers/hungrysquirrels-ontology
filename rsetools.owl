@@ -234,6 +234,15 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#dateOfModification -->
+
+    <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link#dateOfModification">
+        <rdfs:comment>the date of a modification</rdfs:comment>
+        <rdfs:label>date of modification</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://rsetools.squirrel.link#description -->
 
     <owl:DatatypeProperty rdf:about="http://rsetools.squirrel.link#description">
@@ -512,6 +521,26 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#RepositoryLegalType -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#RepositoryLegalType">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Dragons"/>
+        <rdfs:comment>legal type of a repository</rdfs:comment>
+        <rdfs:label>Repository Legal Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link#RepositoryType -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#RepositoryType">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Dragons"/>
+        <rdfs:comment>type of a repository</rdfs:comment>
+        <rdfs:label>Repository Type</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://rsetools.squirrel.link#SIG -->
 
     <owl:Class rdf:about="http://rsetools.squirrel.link#SIG">
@@ -679,6 +708,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- http://rsetools.squirrel.link#Administration -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Administration">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryLegalType"/>
+        <rdfs:label>Administration</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://rsetools.squirrel.link#CSV -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#CSV">
@@ -699,12 +737,39 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- http://rsetools.squirrel.link#Collection -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Collection">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryType"/>
+        <rdfs:label>Collection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#Community -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Community">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryLegalType"/>
+        <rdfs:label>Community</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://rsetools.squirrel.link#GEOJSON -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#GEOJSON">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>GEOJSON</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#Gazetteer -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Gazetteer">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryType"/>
+        <rdfs:label>Gazetteer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -799,6 +864,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- http://rsetools.squirrel.link#ResearchInstitution -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#ResearchInstitution">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryLegalType"/>
+        <rdfs:label>Research Institution</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://rsetools.squirrel.link#SHAQL -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#SHAQL">
@@ -865,6 +939,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>TTL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#Thesaurus -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Thesaurus">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryType"/>
+        <rdfs:label>Thesaurus</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -952,6 +1035,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>command line</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#deprecated -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#deprecated">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#RepoState"/>
+        <rdfs:label>deprecated</rdfs:label>
     </owl:NamedIndividual>
     
 
