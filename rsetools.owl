@@ -58,7 +58,7 @@
 
     <owl:ObjectProperty rdf:about="http://rsetools.squirrel.link#dataState">
         <rdfs:subPropertyOf rdf:resource="http://rsetools.squirrel.link#status"/>
-        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataRepository"/>
+        <rdfs:domain rdf:resource="http://rsetools.squirrel.link#DataDragonLair"/>
         <rdfs:range rdf:resource="http://rsetools.squirrel.link#RepoState"/>
         <rdfs:comment>status of a data repository</rdfs:comment>
         <rdfs:label>data state</rdfs:label>
@@ -397,12 +397,12 @@
     
 
 
-    <!-- http://rsetools.squirrel.link#DataRepository -->
+    <!-- http://rsetools.squirrel.link#DataDragonLair -->
 
-    <owl:Class rdf:about="http://rsetools.squirrel.link#DataRepository">
-        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q1334294"/>
+    <owl:Class rdf:about="http://rsetools.squirrel.link#DataDragonLair">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73901520"/>
         <rdfs:comment>a repository that stores Linked Open Data</rdfs:comment>
-        <rdfs:label>Data Repository</rdfs:label>
+        <rdfs:label>Data Dragon Lair</rdfs:label>
     </owl:Class>
     
 
@@ -441,7 +441,7 @@
 
     <owl:Class rdf:about="http://rsetools.squirrel.link#General">
         <rdfs:comment>general classes</rdfs:comment>
-        <rdfs:label>General</rdfs:label>
+        <rdfs:label>General Classes</rdfs:label>
     </owl:Class>
     
 
@@ -472,6 +472,15 @@
         <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q73899440"/>
         <rdfs:comment>A tool related to the CAA Little Minions</rdfs:comment>
         <rdfs:label>Little Minion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://rsetools.squirrel.link#Main -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#Main">
+        <rdfs:comment>main classes</rdfs:comment>
+        <rdfs:label>Main Classes</rdfs:label>
     </owl:Class>
     
 
@@ -705,11 +714,12 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
-    <!-- https://www.wikidata.org/wiki/Q1334294 -->
+    <!-- https://www.wikidata.org/wiki/Q1235234 -->
 
-    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1334294">
-        <rdfs:comment>storage location on a computer for software packages</rdfs:comment>
-        <rdfs:label>software repository</rdfs:label>
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q1235234">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Main"/>
+        <rdfs:comment>digital archive of documents; database of digital research outputs</rdfs:comment>
+        <rdfs:label>document repository</rdfs:label>
     </owl:Class>
     
 
@@ -757,6 +767,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <!-- https://www.wikidata.org/wiki/Q627335 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q627335">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Main"/>
         <rdfs:comment>defined sequence of activities in a working system of an organization</rdfs:comment>
         <rdfs:label>workflow</rdfs:label>
     </owl:Class>
@@ -773,9 +784,20 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- https://www.wikidata.org/wiki/Q73901520 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/wiki/Q73901520">
+        <rdfs:subClassOf rdf:resource="https://www.wikidata.org/wiki/Q1235234"/>
+        <rdfs:comment>RDF Repository containing interesting Linked Open Data</rdfs:comment>
+        <rdfs:label>data dragon lair</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.wikidata.org/wiki/Q7397 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/wiki/Q7397">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Main"/>
         <rdfs:comment>non-tangible executable component of a computer</rdfs:comment>
         <rdfs:label>software</rdfs:label>
     </owl:Class>
