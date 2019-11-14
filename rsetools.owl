@@ -738,6 +738,14 @@
     
 
 
+    <!-- http://rsetools.squirrel.link#ToolType -->
+
+    <owl:Class rdf:about="http://rsetools.squirrel.link#ToolType">
+        <rdfs:subClassOf rdf:resource="http://rsetools.squirrel.link#Minions"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution -->
 
     <owl:Class rdf:about="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution">
@@ -916,6 +924,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     
 
 
+    <!-- http://rsetools.squirrel.link#CommandlineTool -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#CommandlineTool">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#ToolType"/>
+        <rdfs:label>Commandline Tool</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://rsetools.squirrel.link#Community -->
 
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Community">
@@ -1009,7 +1026,7 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#PLAIN-TEXT">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
-        <rdfs:label>PLAIN-TEXT</rdfs:label>
+        <rdfs:label>PLAIN TEXT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1020,6 +1037,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>PNG</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#Plugin -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Plugin">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#ToolType"/>
+        <rdfs:label>Plugin Tool</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1068,7 +1094,18 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#SPARQL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:comment>any SPARQL query</rdfs:comment>
         <rdfs:label>SPARQL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#SPARQL-RESULTS -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#SPARQL-RESULTS">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:comment>any result of a SPARQL query, e.g. as application/sparql-results+json or application/sparql-results+xml</rdfs:comment>
+        <rdfs:label>SPARQL RESULTS</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1078,7 +1115,18 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#SQL">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:comment>any SQL query</rdfs:comment>
         <rdfs:label>SQL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#SQL-RESULT -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#SQL-RESULT">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:comment>any result set as response of a SQL request</rdfs:comment>
+        <rdfs:label>SQL RESULT</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1089,6 +1137,15 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
         <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
         <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
         <rdfs:label>SVG</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#StandaloneTool -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#StandaloneTool">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#ToolType"/>
+        <rdfs:label>Standalone Tool</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1118,6 +1175,24 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#Thesaurus">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryType"/>
         <rdfs:label>Thesaurus</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#UnknownToolType -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#UnknownToolType">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#ToolType"/>
+        <rdfs:label>Unknown Tool Type</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#WebTool -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#WebTool">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#ToolType"/>
+        <rdfs:label>Web Tool</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1348,6 +1423,17 @@ A D1 Digital Object does not depend on a specific physical carrier, and it can e
     <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#testStatus">
         <rdf:type rdf:resource="http://rsetools.squirrel.link#RepositoryState"/>
         <rdfs:label>test</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://rsetools.squirrel.link#unknownFormat -->
+
+    <owl:NamedIndividual rdf:about="http://rsetools.squirrel.link#unknownFormat">
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#InputFormat"/>
+        <rdf:type rdf:resource="http://rsetools.squirrel.link#OutputFormat"/>
+        <rdfs:comment>any unknown or not specified format</rdfs:comment>
+        <rdfs:label>unknown format</rdfs:label>
     </owl:NamedIndividual>
     
 
