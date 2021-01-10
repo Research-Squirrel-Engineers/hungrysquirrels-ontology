@@ -1,0 +1,3718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Hungry Squirrels Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "http://hungry.squirrel.link/ontology#",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>This ontology contains classes to descibe Little Minions as Tools, Linked Pipes a Workflow for Linked Data Tools and Data Dragons as Repository for Linked Data.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "The Hungry Squirrels Ontology"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.5</span>
+  </div>
+  <h1>The Hungry Squirrels Ontology</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>http://hungry.squirrel.link/ontology#</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/publisher">Publisher</a>(s)</dt>
+        <dd>
+            Research Squirrel Engineers (RSE)<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Florian Thiery<br/>
+        </dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/contributor">Contributor</a>(s)</dt>
+        <dd>
+            Florian Thiery<br/>
+        </dd>
+        <dt>Version Information</dt>
+        <dd>0.1</dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="hungrysquirrels.owl">RDF (xml)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>This ontology contains classes to descibe Little Minions as Tools, Linked Pipes a Workflow for Linked Data Tools and Data Dragons as Repository for Linked Data.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#Characteristics">Characteristics</a></li>
+        <li><a href="#DataDragonLair">Data Dragon Lair</a></li>
+        <li><a href="#DataDragonsCharacteristics">Data Dragons Characteristics</a></li>
+        <li><a href="#EntryLevel">Entry Level</a></li>
+        <li><a href="#FileFormat">File Format</a></li>
+        <li><a href="#GeneralClasses">General Classes</a></li>
+        <li><a href="#InputFormat">Input Format</a></li>
+        <li><a href="#LinkedPipesCharacteristics">Linked Pipes Characteristics</a></li>
+        <li><a href="#LinkedTool">Linked Tool</a></li>
+        <li><a href="#LittleMinion">Little Minion</a></li>
+        <li><a href="#LittleMinionsCharacteristics">Little Minions Characteristics</a></li>
+        <li><a href="#MainClasses">Main Classes</a></li>
+        <li><a href="#MinionTalk">Minion Talk</a></li>
+        <li><a href="#Network">Network</a></li>
+        <li><a href="#OutputFormat">Output Format</a></li>
+        <li><a href="#Pipe">Pipe</a></li>
+        <li><a href="#PipeObject">Pipe Object</a></li>
+        <li><a href="#PipeStatus">Pipe Status</a></li>
+        <li><a href="#PipeStep">Pipe Step</a></li>
+        <li><a href="#Project">Project</a></li>
+        <li><a href="#RepositoryGroup">Repository Group</a></li>
+        <li><a href="#RepositoryLanguage">Repository Language</a></li>
+        <li><a href="#RepositoryLegalType">Repository Legal Type</a></li>
+        <li><a href="#RepositoryQuality">Repository Quality</a></li>
+        <li><a href="#RepositoryStatus">Repository Status</a></li>
+        <li><a href="#RepositoryType">Repository Type</a></li>
+        <li><a href="#Software">Software</a></li>
+        <li><a href="#SpecialInterestGroup">Special Interest Group</a></li>
+        <li><a href="#Tool">Tool</a></li>
+        <li><a href="#ToolStatus">Tool Status</a></li>
+        <li><a href="#ToolType">ToolType</a></li>
+        <li><a href="#advocacygroup">advocacy group</a></li>
+        <li><a href="#datadragonlair">data dragon lair</a></li>
+        <li><a href="#digitalobject">digital object</a></li>
+        <li><a href="#documentrepository">document repository</a></li>
+        <li><a href="#littleminion">little minion</a></li>
+        <li><a href="#miniontalk">minion talk</a></li>
+        <li><a href="#project">project</a></li>
+        <li><a href="#socialnetworkingservice">social networking service</a></li>
+        <li><a href="#software">software</a></li>
+        <li><a href="#softwareexecution">software execution</a></li>
+        <li><a href="#utilitysoftware">utility software</a></li>
+        <li><a href="#workflow">workflow</a></li>
+    </ul>
+    <div class="entity class" id="Characteristics">
+        <h3>Characteristics<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Characteristics</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>classes for characteristics</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#Pipes">Pipes</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonLair">
+        <h3>Data Dragon Lair<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#DataDragonLair</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a repository that stores Linked Open Data</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q73901520">https://www.wikidata.org/wiki/Q73901520</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#hasLegalType">hasLegalType</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#hasType">hasType</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#lairState">lairState</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#hasQuality">hasQuality</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#lairGroup">lairGroup</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DataDragonsCharacteristics">
+        <h3>Data Dragons Characteristics<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Dragons</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Data Dragons Characteristic classes</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Characteristics">Characteristics</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryLegalType">RepositoryLegalType</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryState">RepositoryState</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryQuality">RepositoryQuality</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="EntryLevel">
+        <h3>Entry Level<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#EntryLevel</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>level of knowledge need to use a minion</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#entryLevel">entryLevel</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="FileFormat">
+        <h3>File Format<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Format</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>class to define file format types</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="GeneralClasses">
+        <h3>General Classes<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#General</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>general classes</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q431603">https://www.wikidata.org/wiki/Q431603</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://www.wikidata.org/wiki/Q3220391">https://www.wikidata.org/wiki/Q3220391</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://www.wikidata.org/wiki/Q170584">https://www.wikidata.org/wiki/Q170584</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="InputFormat">
+        <h3>Input Format<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#InputFormat</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a special input format</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Format">Format</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#inputFormat">inputFormat</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LinkedTool">
+        <h3>Linked Tool<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#LinkedTool</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A tool related to the Linked Pipes Project</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q73899440">https://www.wikidata.org/wiki/Q73899440</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LittleMinion">
+        <h3>Little Minion<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#LittleMinion</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A tool related to the CAA Little Minions</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q73899440">https://www.wikidata.org/wiki/Q73899440</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MainClasses">
+        <h3>Main Classes<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Main</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>main classes</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q627335">https://www.wikidata.org/wiki/Q627335</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://www.wikidata.org/wiki/Q7397">https://www.wikidata.org/wiki/Q7397</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://www.wikidata.org/wiki/Q1235234">https://www.wikidata.org/wiki/Q1235234</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MinionTalk">
+        <h3>Minion Talk<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#MinionTalk</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>lightning talk (5min+2min discussion) presenting a Little Minion</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/73899574">https://www.wikidata.org/wiki/73899574</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LittleMinionsCharacteristics">
+        <h3>Little Minions Characteristics<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Minions</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Little Minions Characteristic classes</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Characteristics">Characteristics</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Format">Format</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#ToolState">ToolState</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="https://www.wikidata.org/wiki/73899574">https://www.wikidata.org/wiki/73899574</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#EntryLevel">EntryLevel</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Network">
+        <h3>Network<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Network</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a network</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q3220391">https://www.wikidata.org/wiki/Q3220391</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="OutputFormat">
+        <h3>Output Format<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#OutputFormat</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a special output format</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Format">Format</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#outputFormat">outputFormat</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Pipe">
+        <h3>Pipe<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Pipe</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a chain of software executions using tools</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q627335">https://www.wikidata.org/wiki/Q627335</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#next">next</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PipeObject">
+        <h3>Pipe Object<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#PipeObject</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>input or ouput of a pipe step</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object">http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#hasInput">hasInput</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#hasOutput">hasOutput</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PipeStatus">
+        <h3>Pipe Status<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#PipeState</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution">http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#pipeState">pipeState</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PipeStep">
+        <h3>Pipe Step<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#PipeStep</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>step of a pipe</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution">http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#next">next</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#hasInput">hasInput</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#pipeState">pipeState</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#hasOutput">hasOutput</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#uses">uses</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#next">next</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#usedBy">usedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LinkedPipesCharacteristics">
+        <h3>Linked Pipes Characteristics<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Pipes</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Linked Pipes Characteristic classes</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Characteristics">Characteristics</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution">http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object">http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Project">
+        <h3>Project<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Project</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a project</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q170584">https://www.wikidata.org/wiki/Q170584</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryGroup">
+        <h3>Repository Group<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>some kind of grouping for repositories</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#lairGroup">lairGroup</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryLanguage">
+        <h3>Repository Language<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryLanguage</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>main language of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#language">language</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryLegalType">
+        <h3>Repository Legal Type<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryLegalType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>legal type of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#hasLegalType">hasLegalType</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryQuality">
+        <h3>Repository Quality<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryQuality</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>quality of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#hasQuality">hasQuality</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryStatus">
+        <h3>Repository Status<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>status of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#lairState">lairState</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="RepositoryType">
+        <h3>Repository Type<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#RepositoryType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>type of a repository</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Dragons">Dragons</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#hasType">hasType</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="SpecialInterestGroup">
+        <h3>Special Interest Group<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#SIG</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a group of people with their own specific interests</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q431603">https://www.wikidata.org/wiki/Q431603</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Software">
+        <h3>Software<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Software</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a software coded by a company or RSE developer</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q7397">https://www.wikidata.org/wiki/Q7397</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q312466">https://www.wikidata.org/wiki/Q312466</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#usedBy">usedBy</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#inputFormat">inputFormat</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#toolState">toolState</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#outputFormat">outputFormat</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#entryLevel">entryLevel</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#uses">uses</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Tool">
+        <h3>Tool<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#Tool</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>a small piece of software coded by a RSE</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q312466">https://www.wikidata.org/wiki/Q312466</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q73899440">https://www.wikidata.org/wiki/Q73899440</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ToolStatus">
+        <h3>Tool Status<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#ToolState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>status of a tool</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#toolState">toolState</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ToolType">
+        <h3>ToolType<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#ToolType</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="softwareexecution">
+        <h3>software execution<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D10_Software_Execution</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises events by which a digital device runs a software program or a series of  computing
+    operations on a digital object  as a single task, which is completely determined by its digital input,
+    the software and the generic properties of the device.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Pipes">Pipes</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeState">PipeState</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="digitalobject">
+        <h3>digital object<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D1_Digital_Object</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>This class comprises identifiable immaterial items that can be represented as sets of bit sequences,
+    such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units.
+    Any aggregation of instances of D1 Digital Object into a whole treated as single unit is also regarded as an instance of D1 Digital Object.
+    This means that for instance, the content of a DVD, an XML file on it, and an element of this file, are regarded as distinct instances of
+    D1 Digital Object, mutually related by the P106 is composed of (forms part of) property.
+A D1 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Pipes">Pipes</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeObject">PipeObject</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="miniontalk">
+        <h3>minion talk<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/73899574</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>lightning talk (5min+2min discussion) presenting a Little Minion</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Minions">Minions</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#MinionTalk">MinionTalk</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="documentrepository">
+        <h3>document repository<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q1235234</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>digital archive of documents; database of digital research outputs</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Main">Main</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q73901520">https://www.wikidata.org/wiki/Q73901520</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="project">
+        <h3>project<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q170584</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>collaborative enterprise, frequently involving research or design, that is carefully planned to achieve a particular aim</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#General">General</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Project">Project</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="utilitysoftware">
+        <h3>utility software<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q312466</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>system software designed to help analyze, configure, optimize or maintain a computer</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Tool">Tool</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="socialnetworkingservice">
+        <h3>social networking service<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q3220391</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>online platform that facilitates the building of social relations</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#General">General</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Network">Network</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="advocacygroup">
+        <h3>advocacy group<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q431603</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>defines and represents the interests of a particular social group or industry</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#General">General</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#SIG">SIG</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="workflow">
+        <h3>workflow<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q627335</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>defined sequence of activities in a working system of an organization</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Main">Main</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Pipe">Pipe</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="littleminion">
+        <h3>little minion<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q73899440</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>small software tool for research projects (releated to Digital Humanities)</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Tool">Tool</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#LinkedTool">LinkedTool</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://hungry.squirrel.link/ontology#LittleMinion">LittleMinion</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="datadragonlair">
+        <h3>data dragon lair<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q73901520</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>RDF Repository containing interesting Linked Open Data</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="https://www.wikidata.org/wiki/Q1235234">https://www.wikidata.org/wiki/Q1235234</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="software">
+        <h3>software<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>https://www.wikidata.org/wiki/Q7397</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>non-tangible executable component of a computer</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Main">Main</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#entrylevel">entry level</a></li>
+        <li><a href="#hasinput">has input</a></li>
+        <li><a href="#haslegaltype">has legal type</a></li>
+        <li><a href="#hasoutput">has output</a></li>
+        <li><a href="#hasquality">has quality</a></li>
+        <li><a href="#hastype">has type</a></li>
+        <li><a href="#inputformat">input format</a></li>
+        <li><a href="#lairgroup">lair group</a></li>
+        <li><a href="#lairstate">lair state</a></li>
+        <li><a href="#language">language</a></li>
+        <li><a href="#next">next</a></li>
+        <li><a href="#outputformat">output format</a></li>
+        <li><a href="#pipestate">pipe state</a></li>
+        <li><a href="#status">status</a></li>
+        <li><a href="#toolstate">tool state</a></li>
+        <li><a href="#usedby">used by</a></li>
+        <li><a href="#uses">uses</a></li>
+    </ul>
+    <div class="entity property" id="entrylevel">
+        <h3>entry level<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#entryLevel</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    entry level for a tool
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#EntryLevel">EntryLevel</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasinput">
+        <h3>has input<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#hasInput</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    input of a pipe step
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeObject">PipeObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haslegaltype">
+        <h3>has legal type<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#hasLegalType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    legal type of a data repository
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryLegalType">RepositoryLegalType</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasoutput">
+        <h3>has output<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#hasOutput</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    output of a pipe step
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeObject">PipeObject</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasquality">
+        <h3>has quality<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#hasQuality</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    fuzzy quality of a data repository
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryQuality">RepositoryQuality</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hastype">
+        <h3>has type<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#hasType</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    type of a data repository
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="inputformat">
+        <h3>input format<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#inputFormat</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    input format for a software or tool
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="lairgroup">
+        <h3>lair group<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#lairGroup</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    data repository belongs to group X
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="lairstate">
+        <h3>lair state<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#lairState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    status of a data repository (data dragon lair)
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#status">status</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#DataDragonLair">DataDragonLair</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryState">RepositoryState</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="language">
+        <h3>language<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#language</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    main language of a thing
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="next">
+        <h3>next<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#next</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    next chain step of a pipe
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Pipe">Pipe</a><sup class="sup-c" title="class">c</sup>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="outputformat">
+        <h3>output format<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#outputFormat</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    output format for a software or tool
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="pipestate">
+        <h3>pipe state<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#pipeState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    status of a pipe
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#status">status</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeState">PipeState</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="status">
+        <h3>status<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#status</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    status super property
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="toolstate">
+        <h3>tool state<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#toolState</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    status of a tool
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#status">status</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#ToolState">ToolState</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="usedby">
+        <h3>used by<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#usedBy</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    pipestep used by software or tool
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#uses">uses</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="uses">
+        <h3>uses<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#uses</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    pipestep uses software or tool
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#PipeStep">PipeStep</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#Software">Software</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#active">active</a></li>
+        <li><a href="#APIendpoint">API endpoint</a></li>
+        <li><a href="#author">author</a></li>
+        <li><a href="#consumesLOD">consumes LOD</a></li>
+        <li><a href="#dateofentry">date of entry</a></li>
+        <li><a href="#dateofmodification">date of modification</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#gitrepository">git repository</a></li>
+        <li><a href="#link">link</a></li>
+        <li><a href="#name">name</a></li>
+        <li><a href="#prefix">prefix</a></li>
+        <li><a href="#producesLOD">produces LOD</a></li>
+        <li><a href="#retcatproperties">retcat properties</a></li>
+        <li><a href="#retcatlabelURL">retcat label URL</a></li>
+        <li><a href="#retcatqueryURL">retcat query URL</a></li>
+        <li><a href="#SPARQLendpoint">SPARQL endpoint</a></li>
+        <li><a href="#wikidataid">wikidataid</a></li>
+        <li><a href="#sameas">same as</a></li>
+    </ul>
+    <div class="entity property" id="active">
+        <h3>active<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#active</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    is the item active?
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="APIendpoint">
+        <h3>API endpoint<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#apiendpoint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    URL of the API entrypoint
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="author">
+        <h3>author<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#author</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    author or inventor or right holder
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="consumesLOD">
+        <h3>consumes LOD<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#consumesLOD</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    does the item consume LOD?
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dateofentry">
+        <h3>date of entry<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#dateOfEntry</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    the date of database entry
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dateofmodification">
+        <h3>date of modification<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#dateOfModification</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    the date of a modification
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#description</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    a short description
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="gitrepository">
+        <h3>git repository<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#gitrepository</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    a link to the git repository
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#link">link</a><sup class="sup-dp" title="datatype property">dp</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="link">
+        <h3>link<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#link</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    a link for further information
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="name">
+        <h3>name<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#name</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    a name
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="prefix">
+        <h3>prefix<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#prefix</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    prefix
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="producesLOD">
+        <h3>produces LOD<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#producesLOD</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    does the item produce LOD?
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="retcatproperties">
+        <h3>retcat properties<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#retcat</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    properties for the reference thesaurus catalogue
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="retcatlabelURL">
+        <h3>retcat label URL<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#retcatlabelURL</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    URL to get detail information about a resource
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#retcat">retcat</a><sup class="sup-dp" title="datatype property">dp</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="retcatqueryURL">
+        <h3>retcat query URL<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#retcatqueryURL</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    URL to query a resource
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://hungry.squirrel.link/ontology#retcat">retcat</a><sup class="sup-dp" title="datatype property">dp</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="SPARQLendpoint">
+        <h3>SPARQL endpoint<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#sparqlendpoint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    URL of the SPARQL endpoint
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="wikidataid">
+        <h3>wikidataid<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://hungry.squirrel.link/ontology#wikidataid</code></td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="sameas">
+        <h3>same as<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2002/07/owl#sameAs</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    The property that determines that two given individuals are equal.
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contributor">contributor</a></li>
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#description1">description</a></li>
+        <li><a href="#publisher">publisher</a></li>
+        <li><a href="#rights">rights</a></li>
+        <li><a href="#subject">subject</a></li>
+    </ul>
+    <div class="entity property" id="contributor">
+        <h3>contributor<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/contributor</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description1">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="publisher">
+        <h3>publisher<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/publisher</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="rights">
+        <h3>rights<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/rights</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="subject">
+        <h3>subject<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/subject</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#AUDIO+VIDEO">AUDIO + VIDEO</a></li>
+        <li><a href="#AdditionalInformationGroup">Additional Information Group</a></li>
+        <li><a href="#Administration">Administration</a></li>
+        <li><a href="#CSV">CSV</a></li>
+        <li><a href="#CYPHER">CYPHER</a></li>
+        <li><a href="#Collection">Collection</a></li>
+        <li><a href="#CommandlineTool">Commandline Tool</a></li>
+        <li><a href="#Community">Community</a></li>
+        <li><a href="#CulturalHeritaleThesauriGroup">Cultural Heritale Thesauri Group</a></li>
+        <li><a href="#GEOJSON">GEOJSON</a></li>
+        <li><a href="#Gazetteer">Gazetteer</a></li>
+        <li><a href="#HTML">HTML</a></li>
+        <li><a href="#IIIF-JSON">IIIF-JSON</a></li>
+        <li><a href="#JPG">JPG</a></li>
+        <li><a href="#JSON">JSON</a></li>
+        <li><a href="#JSON-LD">JSON-LD</a></li>
+        <li><a href="#N3">N3</a></li>
+        <li><a href="#PLAINTEXT">PLAIN TEXT</a></li>
+        <li><a href="#PNG">PNG</a></li>
+        <li><a href="#PersonIndex">Person Index</a></li>
+        <li><a href="#PluginTool">Plugin Tool</a></li>
+        <li><a href="#RDF-XML">RDF-XML</a></li>
+        <li><a href="#ResearchInstitution">Research Institution</a></li>
+        <li><a href="#SHAQL">SHAQL</a></li>
+        <li><a href="#SHP">SHP</a></li>
+        <li><a href="#SPARQL">SPARQL</a></li>
+        <li><a href="#SPARQLRESULTS">SPARQL RESULTS</a></li>
+        <li><a href="#SQL">SQL</a></li>
+        <li><a href="#SQLRESULT">SQL RESULT</a></li>
+        <li><a href="#SVG">SVG</a></li>
+        <li><a href="#StandaloneTool">Standalone Tool</a></li>
+        <li><a href="#TIFF">TIFF</a></li>
+        <li><a href="#TTL">TTL</a></li>
+        <li><a href="#Thesaurus">Thesaurus</a></li>
+        <li><a href="#TimeGazetteer">Time Gazetteer</a></li>
+        <li><a href="#UnknownToolType">Unknown Tool Type</a></li>
+        <li><a href="#WebTool">Web Tool</a></li>
+        <li><a href="#X3D">X3D</a></li>
+        <li><a href="#XML">XML</a></li>
+        <li><a href="#XML-TEI">XML-TEI</a></li>
+        <li><a href="#active">active</a></li>
+        <li><a href="#advanced">advanced</a></li>
+        <li><a href="#any3dformat">any 3d format</a></li>
+        <li><a href="#beginner">beginner</a></li>
+        <li><a href="#commandline">command line</a></li>
+        <li><a href="#deprecated">deprecated</a></li>
+        <li><a href="#deutsch">deutsch</a></li>
+        <li><a href="#end">end</a></li>
+        <li><a href="#english">english</a></li>
+        <li><a href="#franais">français</a></li>
+        <li><a href="#otherReferenceThesauriGroup">other Reference Thesauri Group</a></li>
+        <li><a href="#prototype">prototype</a></li>
+        <li><a href="#published">published</a></li>
+        <li><a href="#qualityhigh">quality high</a></li>
+        <li><a href="#qualitylow">quality low</a></li>
+        <li><a href="#qualitymedium">quality medium</a></li>
+        <li><a href="#start">start</a></li>
+        <li><a href="#step">step</a></li>
+        <li><a href="#test">test</a></li>
+        <li><a href="#unknownformat">unknown format</a></li>
+        <li><a href="#unknownlanguage">unknown language</a></li>
+        <li><a href="#unknowntoolstatus">unknown tool status</a></li>
+        <li><a href="#unspecifiedGroup">unspecified Group</a></li>
+    </ul>
+    <div class="entity named_individual" id="Administration">
+        <h3>Administration<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Administration
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="CSV">
+        <h3>CSV<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#CSV
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="CYPHER">
+        <h3>CYPHER<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#CYPHER
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="Collection">
+        <h3>Collection<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Collection
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="CommandlineTool">
+        <h3>Commandline Tool<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#CommandlineTool
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="Community">
+        <h3>Community<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Community
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="GEOJSON">
+        <h3>GEOJSON<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#GEOJSON
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="Gazetteer">
+        <h3>Gazetteer<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Gazetteer
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="HTML">
+        <h3>HTML<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#HTML
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="IIIF-JSON">
+        <h3>IIIF-JSON<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#IIIF-JSON
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="JPG">
+        <h3>JPG<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#JPG
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="JSON">
+        <h3>JSON<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#JSON
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="JSON-LD">
+        <h3>JSON-LD<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#JSON-LD
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="N3">
+        <h3>N3<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#N3
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="PLAINTEXT">
+        <h3>PLAIN TEXT<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#PLAIN-TEXT
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="PNG">
+        <h3>PNG<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#PNG
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="PersonIndex">
+        <h3>Person Index<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#PersonIndex
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="PluginTool">
+        <h3>Plugin Tool<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Plugin
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="RDF-XML">
+        <h3>RDF-XML<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#RDF-XML
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="ResearchInstitution">
+        <h3>Research Institution<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#ResearchInstitution
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLegalType">RepositoryLegalType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SHAQL">
+        <h3>SHAQL<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SHAQL
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SHP">
+        <h3>SHP<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SHP
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SPARQL">
+        <h3>SPARQL<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SPARQL
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    any SPARQL query
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SPARQLRESULTS">
+        <h3>SPARQL RESULTS<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SPARQL-RESULTS
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    any result of a SPARQL query, e.g. as application/sparql-results+json or application/sparql-results+xml
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SQL">
+        <h3>SQL<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SQL
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    any SQL query
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SQLRESULT">
+        <h3>SQL RESULT<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SQL-RESULT
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    any result set as response of a SQL request
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="SVG">
+        <h3>SVG<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#SVG
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="StandaloneTool">
+        <h3>Standalone Tool<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#StandaloneTool
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="TIFF">
+        <h3>TIFF<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#TIFF
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="TTL">
+        <h3>TTL<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#TTL
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="Thesaurus">
+        <h3>Thesaurus<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#Thesaurus
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="TimeGazetteer">
+        <h3>Time Gazetteer<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#TimeGazetteer
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryType">RepositoryType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="UnknownToolType">
+        <h3>Unknown Tool Type<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#UnknownToolType
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="WebTool">
+        <h3>Web Tool<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#WebTool
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolType">ToolType</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="X3D">
+        <h3>X3D<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#X3D
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="XML">
+        <h3>XML<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#XML
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="XML-TEI">
+        <h3>XML-TEI<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#XML-TEI
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="active">
+        <h3>active<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#active
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryState">RepositoryState</a><br/>
+                <a href="http://www.w3.org/2002/07/owl#DatatypeProperty">owl:DatatypeProperty</a><br/>
+                <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    is the item active?
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="AdditionalInformationGroup">
+        <h3>Additional Information Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#additionalinformationGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="advanced">
+        <h3>advanced<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#advanced
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#EntryLevel">EntryLevel</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="any3dformat">
+        <h3>any 3d format<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#any3Dformat
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="AUDIO+VIDEO">
+        <h3>AUDIO + VIDEO<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#audio-video
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="beginner">
+        <h3>beginner<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#beginner
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#EntryLevel">EntryLevel</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="CulturalHeritaleThesauriGroup">
+        <h3>Cultural Heritale Thesauri Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#chreferencethesauriGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="commandline">
+        <h3>command line<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#commandline
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="deutsch">
+        <h3>deutsch<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#de
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="deprecated">
+        <h3>deprecated<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#deprecated
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryState">RepositoryState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="english">
+        <h3>english<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#en
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="end">
+        <h3>end<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#end
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#PipeState">PipeState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="franais">
+        <h3>français<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#fr
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="otherReferenceThesauriGroup">
+        <h3>other Reference Thesauri Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#otherreferencethesauriGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="prototype">
+        <h3>prototype<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#prototype
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolState">ToolState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="published">
+        <h3>published<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#published
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolState">ToolState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="qualityhigh">
+        <h3>quality high<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#qualityHigh
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="qualitylow">
+        <h3>quality low<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#qualityLow
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="qualitymedium">
+        <h3>quality medium<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#qualityMedium
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryQuality">RepositoryQuality</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="start">
+        <h3>start<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#start
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#PipeState">PipeState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="step">
+        <h3>step<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#step
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#PipeState">PipeState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="test">
+        <h3>test<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#testStatus
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryState">RepositoryState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="unknownformat">
+        <h3>unknown format<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#unknownFormat
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#InputFormat">InputFormat</a><br/>
+                <a href="http://hungry.squirrel.link/ontology#OutputFormat">OutputFormat</a><br/>
+            </dd>
+            <tr>
+                <th>Description</th>
+                <td>
+                    any unknown or not specified format
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity named_individual" id="unknownlanguage">
+        <h3>unknown language<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#unknownLanguage
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryLanguage">RepositoryLanguage</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="unknowntoolstatus">
+        <h3>unknown tool status<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#unknownToolStatus
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#ToolState">ToolState</a><br/>
+            </dd>
+        </table>
+    </div>
+    <div class="entity named_individual" id="unspecifiedGroup">
+        <h3>unspecified Group<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://hungry.squirrel.link/ontology#unspecifiedGroup
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Classes(s)</dt>
+            <dd>
+                <a href="http://hungry.squirrel.link/ontology#RepositoryGroup">RepositoryGroup</a><br/>
+            </dd>
+        </table>
+    </div>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>http://hungry.squirrel.link/ontology#</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>wd</dt>
+        <dd><code>http://www.wikidata.org/entity/</code></dd>
+        <dt>wdt</dt>
+        <dd><code>http://www.wikidata.org/prop/direct/</code></dd>
+        <dt>wikibase</dt>
+        <dd><code>http://wikiba.se/ontology#</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
